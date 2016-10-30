@@ -30,4 +30,5 @@ end
 
 group :test do
   gem 'capybara', '~> 2.10'
+  gem 'database_cleaner', '~> 1.5'
 end
