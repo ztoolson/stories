@@ -1,0 +1,26 @@
+<h1>New Post</h1>
+
+<%= form_for @post do |form_builder| %>
+  <!-- Error Messages -->
+  <% if @post.errors.any? %>
+    <div class="error">
+      <h2>
+        <%= pluralize(@post.errors.count, "error") %> prohibited
+        this post from being saved:
+      </h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_builder.label :title %>
+  <%= form_builder.text_field :title %>
+
+  <%= form_builder.label :body %>
+  <%= form_builder.text_area :body %>
+
+  <%= form_builder.submit 'Publish' %>
+<% end %>
